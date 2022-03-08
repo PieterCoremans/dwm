@@ -83,26 +83,26 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },/*expand winodw left*/
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },/*expand window right*/
 	{ MODKEY,                       XK_Return, zoom,           {0} },/*put in master*/
-	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0} },/*toggle between two last windows*/
 	{ MODKEY,                       XK_q,      killclient,     {0} },/*close window*/
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },/*tiled view*/
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },/*floating view*/
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },/*each window full size*/
 	{ MODKEY,                       XK_space,  setlayout,      {0} },/*fix current layout (toggle)*/
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_agrave,      view,           {.ui = ~0 } },/* bekijk alle tags tezamen (maak ongedaan door MODKEY + Control + te verwijderen tag*/
+	{ MODKEY|ShiftMask,             XK_agrave,      tag,            {.ui = ~0 } },/* zet window op alle tags (maak ongedaan door MODKEY|ShiftMask + Control + te verwijderen tag*/
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	/*verander gaps tijdens sessie*/
-	{ MODKEY,                       XK_minus, setgaps,         {.i = -1 } },
-	{ MODKEY,                       XK_equal, setgaps,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal, setgaps,         {.i = 0  } },
+	{ MODKEY,                       XK_minus, setgaps,         {.i = -1 } }, /*maak gaps kleiner*/
+	{ MODKEY,                       XK_equal, setgaps,         {.i = +1 } }, /*maak gaps groter*/
+	{ MODKEY|ShiftMask,             XK_equal, setgaps,         {.i = 0  } }, /*verwijder gaps*/
 	/*Shiftview keys*/
-	{ MODKEY,                       XK_n, shiftview ,          {.i = +1 } },
-	{ MODKEY,                       XK_b, shiftview,           {.i = -1 } },
+	{ MODKEY,                       XK_n, shiftview ,          {.i = +1 } }, /*ga naar volgende tag*/
+	{ MODKEY,                       XK_b, shiftview,           {.i = -1 } }, /*ga naar vorige tag*/ 
 	/*TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
