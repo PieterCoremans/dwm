@@ -11,7 +11,7 @@ static const char dmenufont[]       = "JetBrainsMono:size=12";
 //background color
 static const char col_gray1[]       = "#222222";
 //inactive window border color
-static const char col_gray2[]       = "#2D7C4A"; /*origineel "#444444"*/
+static const char col_gray2[]       = "#444444"; /* Green: "#2D7C4A"; */
 //font color
 static const char col_gray3[]       = "#bbbbbb";
 //current tag and current window font color
