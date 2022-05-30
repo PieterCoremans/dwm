@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono:size=12" };
 static const char dmenufont[]       = "JetBrainsMono:size=12";
 //background color
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = /*"#00374d"*/ "#222222";
 //inactive window border color
 static const char col_gray2[]       = "#444444"; /* Green: "#2D7C4A"; */
 //font color
@@ -19,7 +19,7 @@ static const char col_gray4[]       = "#eeeeee";
 //Top bar second color 
 static const char col_cyan[]         = "#005577";
 //Active window border color
-static const char col_windowborder[]      = "#C8112A";
+static const char col_windowborder[]      = "#b38302"; /*"#C8112A"*/
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -103,6 +103,8 @@ static Key keys[] = {
 	/*Shiftview keys*/
 	{ MODKEY,                       XK_n, shiftview ,          {.i = +1 } }, /*ga naar volgende tag*/
 	{ MODKEY,                       XK_b, shiftview,           {.i = -1 } }, /*ga naar vorige tag*/ 
+	{ MODKEY,                       XK_Up,    spawn,          SHCMD("lmc up") },/*volume up*/
+	{ MODKEY,                       XK_Down,  spawn,          SHCMD("lmc down") },/*volume down*/
 	/*TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
