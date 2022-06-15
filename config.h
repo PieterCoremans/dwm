@@ -6,8 +6,8 @@ static const unsigned int gappx     = 10;       /*gaps size between windows -> m
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono:size=12" };
-static const char dmenufont[]       = "JetBrainsMono:size=12";
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:style=Medium:size=12" };
+static const char dmenufont[]       = "JetBrainsMono:style=Regular:size=12";
 //background color
 static const char col_gray1[]       = /*"#00374d"*/ "#222222";
 //inactive window border color
@@ -85,6 +85,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },/*put in master*/
 	{ MODKEY,                       XK_Tab,    view,           {0} },/*toggle between two last windows*/
 	{ MODKEY,                       XK_q,      killclient,     {0} },/*close window*/
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("shutdown_prompt") },/*run shutdown script*/
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },/*tiled view*/
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },/*floating view*/
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },/*each window full size*/
