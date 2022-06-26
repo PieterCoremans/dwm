@@ -85,7 +85,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },/*put in master*/
 	{ MODKEY,                       XK_Tab,    view,           {0} },/*toggle between two last windows*/
 	{ MODKEY,                       XK_q,      killclient,     {0} },/*close window*/
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("shutdown_prompt") },/*run shutdown script*/
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("$HOME/.local/bin/changekeys") },/*run changekeys script*/
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("$HOME/.local/bin/shutdown_prompt") },/*run shutdown script*/
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },/*tiled view*/
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },/*floating view*/
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },/*each window full size*/
@@ -104,8 +105,8 @@ static Key keys[] = {
 	/*Shiftview keys*/
 	{ MODKEY,                       XK_n, shiftview ,          {.i = +1 } }, /*ga naar volgende tag*/
 	{ MODKEY,                       XK_b, shiftview,           {.i = -1 } }, /*ga naar vorige tag*/ 
-	{ MODKEY,                       XK_Up,    spawn,          SHCMD("lmc up") },/*volume up*/
-	{ MODKEY,                       XK_Down,  spawn,          SHCMD("lmc down") },/*volume down*/
+	{ MODKEY,                       XK_Up,    spawn,          SHCMD("$HOME/.local/bin/lmc up") },/*volume up*/
+	{ MODKEY,                       XK_Down,  spawn,          SHCMD("$HOME/.local/bin/lmc down") },/*volume down*/
 	/*TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
