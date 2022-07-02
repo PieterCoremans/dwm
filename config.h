@@ -110,6 +110,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b, shiftview,           {.i = -1 } },/*ga naar vorige tag*/ 
 	{ MODKEY,                       XK_Up,    spawn,          SHCMD("$HOME/.local/bin/lmc up") },/*volume up*/
 	{ MODKEY,                       XK_Down,  spawn,          SHCMD("$HOME/.local/bin/lmc down") },/*volume down*/
+	{ MODKEY,                       XK_Right,    spawn,       SHCMD("$HOME/.local/bin/pbc up") },/*screen brightness up*/
+	{ MODKEY,                       XK_Left,  spawn,          SHCMD("$HOME/.local/bin/pbc down") },/*screen brightness down*/
 	/*TAGKEYS(                        XK_1,                      0)*/
 	/*TAGKEYS(                        XK_2,                      1)*/
 	/*TAGKEYS(                        XK_3,                      2)*/
