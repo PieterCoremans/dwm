@@ -112,6 +112,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Down,  spawn,          SHCMD("$HOME/.local/bin/lmc down") },/*volume down*/
 	{ MODKEY,                       XK_Right,    spawn,       SHCMD("$HOME/.local/bin/pbc up") },/*screen brightness up*/
 	{ MODKEY,                       XK_Left,  spawn,          SHCMD("$HOME/.local/bin/pbc down") },/*screen brightness down*/
+	{ MODKEY|ShiftMask,             XK_w,     spawn,          SHCMD("$HOME/.local/bin/wifi_on_off") },/*toggle wifi*/
 	/*TAGKEYS(                        XK_1,                      0)*/
 	/*TAGKEYS(                        XK_2,                      1)*/
 	/*TAGKEYS(                        XK_3,                      2)*/
