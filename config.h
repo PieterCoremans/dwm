@@ -36,7 +36,9 @@ static const Rule rules[] = {
 */	 
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Brave-browser",  NULL,       NULL,       1 << 0,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Thunderbird",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Yad",      NULL,       NULL,       0,            1,           -1 },
 };
 
@@ -54,7 +56,8 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MUDKEY Mod4Mask /*super key*/
+#define MODKEY Mod1Mask /*alt key*/
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -85,7 +88,9 @@ static Key keys[] = {
 	/*{ MODKEY,                       XK_Right,  spawn,          SHCMD("$HOME/.local/bin/pbc up") },*//*screen brightness up*/
 	/*{ MODKEY,                       XK_Left,   spawn,          SHCMD("$HOME/.local/bin/pbc down") },*//*screen brightness down*/
 	/*{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$HOME/.local/bin/wifi_on_off") },*//*toggle wifi*/
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },/*launch dmenu*/
+	{ MUDKEY,                       XK_p,      spawn,          {.v = dmenucmd } },/*launch dmenu*/
+	{ MUDKEY,                       XK_q,      killclient,     {0} },/*close window*/
+	//change layout of screens
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },/*toggle top bar*/
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },/*go up a window*/
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },/*go down a window*/
@@ -95,7 +100,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },/*expand window right*/
 	{ MODKEY,                       XK_Return, zoom,           {0} },/*put in master*/
 	{ MODKEY,                       XK_Tab,    view,           {0} },/*toggle between two last windows*/
-	{ MODKEY,                       XK_q,      killclient,     {0} },/*close window*/
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },/*tiled view*/
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },/*floating view*/
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },/*each window full size*/
@@ -105,15 +109,16 @@ static Key keys[] = {
 	{ MODKEY,                       XK_agrave,      view,           {.ui = ~0 } },
         //zet window op alle tags (maak ongedaan door MODKEY|ShiftMask + Control + te verwijderen tag
 	{ MODKEY|ShiftMask,             XK_agrave,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, /* focus op vorig scherm */
-	{ MODKEY,                       XK_semicolon, focusmon,       {.i = +1 } }, /* focus op volgend scherm */
-	/*{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },*/ /* verplaats window naar vorig scherm*/
-	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,         {.i = +1 } }, /* verplaats window naar volgend scherm*/
-	/*verander gaps tijdens sessie*/
+	//meerdere schermen
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },/*focus op vorig scherm */
+	{ MODKEY,                       XK_semicolon, focusmon,       {.i = +1 } },/*focus op volgend scherm */
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, /*verplaats window naar vorig scherm*/
+	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,         {.i = +1 } },/*verplaats window naar volgend scherm*/
+	//verander gaps tijdens sessie
 	{ MODKEY,                       XK_minus, setgaps,         {.i = -1 } },/*maak gaps kleiner*/
 	{ MODKEY,                       XK_equal, setgaps,         {.i = +1 } },/*maak gaps groter*/
 	{ MODKEY|ShiftMask,             XK_equal, setgaps,         {.i = 0  } },/*verwijder gaps*/
-	/*Shiftview keys*/
+	//Shiftview keys
 	{ MODKEY,                       XK_n, shiftview ,          {.i = +1 } },/*ga naar volgende tag*/
 	{ MODKEY,                       XK_b, shiftview,           {.i = -1 } },/*ga naar vorige tag*/ 
 	/*TAGKEYS(                        XK_1,                      0)*/
@@ -125,6 +130,7 @@ static Key keys[] = {
 	/*TAGKEYS(                        XK_7,                      6)*/
 	/*TAGKEYS(                        XK_8,                      7)*/
 	/*TAGKEYS(                        XK_9,                      8)*/
+	//Change to other tag
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
 	TAGKEYS(                        XK_quotedbl,               2)
@@ -134,7 +140,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_egrave,                 6)
 	TAGKEYS(                        XK_exclam,                 7)
 	TAGKEYS(                        XK_ccedilla,               8)
-	{ MODKEY|ShiftMask,	        XK_q,      quit,           {0} },/*quit window*/
+	{ MUDKEY|ShiftMask,	        XK_q,      quit,           {0} },/*quit window*/
 };
 /*END_KEYS*/
 
