@@ -50,8 +50,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[M]",      monocle },
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[M]",      monocle },  /* first entry is default */
+	{ "[]=",      tile },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
@@ -101,9 +101,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },/*expand window right*/
 	{ MODKEY,                       XK_Return, zoom,           {0} },/*put in master*/
 	{ MODKEY,                       XK_Tab,    view,           {0} },/*toggle between two last windows*/
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },/*tiled view*/
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },/*floating view*/
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },/*each window full size*/
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },/*tiled view*/
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },/*floating view*/
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[0]} },/*each window full size*/
 	{ MODKEY,                       XK_space,  setlayout,      {0} },/*fix current layout (toggle)*/
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
         //bekijk alle tags tezamen (maak ongedaan door MODKEY + Control + te verwijderen tag:
